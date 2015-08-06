@@ -1,0 +1,23 @@
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+}
+
+html, body {
+    height: 100%;
+}
+.map {
+    height: 100%;
+    width: 100%;
+}
+
+th, td {
+    padding: 0.5em;
+}
+tr:first-child {
+    font-size: larger;
+    text-align: center;
+}
+tr:first-child th {
+    border-bottom: 1px solid black;
+}

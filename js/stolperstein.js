@@ -172,6 +172,122 @@ var tokens = {
     }
 };
 
+function bezirkName(bezirkId) {
+    return ["Bonn", "Bad Godesberg", "Beuel", "Hardtberg"][bezirkId - 1];
+}
+
+function ortsteilName(ortsteilId) {
+    return [
+        "Alt-Godesberg",
+        "Auerberg",
+        "Beuel-Mitte",
+        "Beuel-Ost",
+        "Bonn-Castell",
+        "Bonn-Zentrum",
+        "Brüser Berg",
+        "Buschdorf",
+        "Dottendorf",
+        "Dransdorf",
+        "Duisdorf",
+        "Endenich",
+        "Friesdorf",
+        "Geislar",
+        "Godesberg-Villenviertel",
+        "Godesberg-Nord",
+        "Graurheindorf",
+        "Gronau",
+        "Hardthöhe",
+        "Heiderhof",
+        "Hochkreuz",
+        "Hoholz",
+        "Holtorf",
+        "Holzlar",
+        "Ippendorf",
+        "Kessenich",
+        "Küdinghoven",
+        "Lannesdorf",
+        "Lengdorf",
+        "Lessenich / Meßdorf",
+        "Limperich",
+        "Mehlem",
+        "Muffendorf",
+        "Nordstadt",
+        "Oberkassel",
+        "Pennenfeld",
+        "Plittersdorf",
+        "Poppelsdorf",
+        "Pützchen / Bechlinghoven",
+        "Ramersdorf",
+        "Röttgen",
+        "Rüngsdorf",
+        "Schwarzrheindorf / Vilich-Rheindorf",
+        "Schweinheim",
+        "Südstadt",
+        "Tannenbusch",
+        "Ückesdorf",
+        "Venusberg",
+        "Vilich",
+        "Vilich-Müldorf",
+        "Weststadt"
+    ][ortsteilId - 1];
+}
+
+function stolpersteinAnzahl(ortsteilId) {
+    return [
+        29, // Alt-Godesberg
+        0,  // Auerberg
+        53, // Beuel-Mitte
+        8,  // Beuel-Ost
+        1,  // Bonn-Castell
+        27, // Bonn-Zentrum
+        0,  // Brüser Berg
+        0,  // Buschdorf
+        0,  // Dottendorf
+        0,  // Dransdorf
+        5,  // Duisdorf
+        16, // Endenich
+        2,  // Friesdorf
+        0,  // Geislar
+        11, // Godesberg-Villenviertel
+        0,  // Godesberg-Nord
+        0,  // Graurheindorf
+        4,  // Gronau
+        0,  // Hardthöhe
+        0,  // Heiderhof
+        0,  // Hochkreuz
+        0,  // Hoholz
+        0,  // Holtorf
+        1,  // Holzlar
+        0,  // Ippendorf
+        16, // Kessenich
+        0,  // Küdinghoven
+        0,  // Lannesdorf
+        0,  // Lengdorf
+        0,  // Lessenich/Meßdorf
+        1,  // Limperich
+        4,  // Mehlem
+        1,  // Muffendorf
+        29, // Nordstadt
+        1,  // Oberkassel
+        0,  // Pennenfeld
+        0,  // Plittersdorf
+        2,  // Poppelsdorf
+        0,  // Pützchen/Bechlinghoven
+        0,  // Ramersdorf
+        0,  // Röttgen
+        4,  // Rüngsdorf
+        0,  // Schwarzrheindorf/Vilich-Rheindorf
+        0,  // Schweinheim
+        27, // Südstadt
+        0,  // Tannenbusch
+        0,  // Ückesdorf
+        0,  // Venusberg
+        5,  // Vilich
+        0,  // Vilich-Müldorf
+        28  // Weststadt
+    ][ortsteilId - 1];
+}
+
 function link(text) {
     var tokenized = [text];
     var position;
@@ -247,14 +363,14 @@ function addBonnCityLimits(map) {
     $.ajax({
         dataType: 'json',
         url: 'files/Stadt_Bonn-OSM.geojson',
-        //url: 'files/Stadt_Bonn-offiziell.geojson',
+        url: 'files/Stadt_Bonn-offiziell.geojson',
         success: function (jsonData) {
             L.geoJson(jsonData, {
                 style: function (feature) {
                     return {
-                        weight: 6,
+                        weight: 5,
                         color: '#000',
-                        opacity: 1,
+                        opacity: 0.4,
                         fillColor: '#00f',
                         fillOpacity: 0.08
                     };
@@ -274,9 +390,9 @@ function addBonnMunicipalityLimits(map) {
             L.geoJson(jsonData, {
                 style: function (feature) {
                     return {
-                        weight: 3,
+                        weight: 5,
                         color: '#00f',
-                        opacity: 1,
+                        opacity: 0.4,
                         fillOpacity: 0
                     };
                 }
@@ -288,16 +404,17 @@ function addBonnMunicipalityLimits(map) {
 }
 
 function configureBonnDistrictPopups(feature, layer, status) {
+
     var description = [];
     var popup;
     if (feature.properties) {
-        if (feature.properties.name) {
-            description.push('<strong>' + feature.properties.name + '</strong>');
+        if (feature.properties.ortsteil) {
+            description.push('<strong>' + ortsteilName(feature.properties.ortsteil) + '</strong>');
         }
-        if (feature.properties.stadtbezirk) {
-            description.push('Stadtbezirk ' + feature.properties.stadtbezirk);
+        if (feature.properties.bezirk) {
+            description.push('Stadtbezirk ' + bezirkName(feature.properties.bezirk));
         }
-        feature.properties.stolpersteine = feature.properties.stolpersteine || 0;
+        feature.properties.stolpersteine = stolpersteinAnzahl(feature.properties.ortsteil);
         description.push(
             '<strong>' + inGerman(feature.properties.stolpersteine) + '</strong>' +
             ' Stolperstein' +

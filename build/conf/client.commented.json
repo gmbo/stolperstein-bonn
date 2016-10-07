@@ -1,0 +1,94 @@
+{
+  "languageSettings": {
+    "languageFile": "files/l10n.json"
+  },
+  "view": {
+    "center": [7.099227905273438, 50.73069673104681],
+    "zoom": 13
+  },
+  "mobileLayout": {
+    "mediaQueries": [
+      "(max-width: 736px)"
+    ],
+    "scaleIcons": 1.4,
+    "animations": false
+  },
+  "featurePopup": {
+    "offset": [
+      0,
+      -20
+    ],
+    "positioning": "bottom-center",
+    "iconSizedOffset": [
+      0,
+      -1
+    ]
+  },
+  "featureTooltip": {
+    "positioning": "top-left",
+    "offset": [
+      10,
+      20
+    ]
+  },
+  "interactions": {
+    "doubleClickZoom": true,
+    "dragPan": true,
+    "keyboardPan": true,
+    "keyboardZoom": true,
+    "mouseWheelZoom": true,
+    "pinchZoom": true
+  },
+  "controls": {
+    "onMap": [
+      "attribution",
+      "scaleLine",
+      "zoom",
+      "mobileControls"
+    ],
+    "scaleLine": {
+      "float": [
+        "right",
+        "bottom"
+      ]
+    },
+    "zoom": {
+      "slider": false,
+      "buttons": true,
+      "float": [
+        "left",
+        "top"
+      ]
+    },
+    "attribution": {
+      "float": [
+        "left",
+        "bottom"
+      ],
+      "importance": 99,
+      "poweredBy": "<a target=\"_blank\" href=\"https://github.com/penpendede/stolperstein-bonn/\">stolperstein-bonn</a>"
+    }
+  },
+  "styleMap": {
+    "#defaultStyle": {
+      "fill": {
+        "color": "rgba( 0, 113, 188, 0.3)"
+      },
+      "stroke": {
+        "color": "rgba( 46, 49, 146, 0.8)",
+        "width": 2
+      },
+      "image": {
+        "type": "circle",
+        "radius": 7.5,
+        "fill": {
+          "color": "rgba( 0, 113, 188, 0.3)"
+        },
+        "stroke": {
+          "color": "rgba( 46, 49, 146, 0.8)",
+          "width": 2
+        }
+      }
+    }
+  }
+}

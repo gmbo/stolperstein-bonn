@@ -1,0 +1,45 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'run', 'dev', 'conf' ]
+2 info using npm@3.10.3
+3 info using node@v6.7.0
+4 verbose run-script [ 'predev', 'dev', 'postdev' ]
+5 info lifecycle stolperstein-bonn@0.1.0~predev: stolperstein-bonn@0.1.0
+6 silly lifecycle stolperstein-bonn@0.1.0~predev: no script for predev, continuing
+7 info lifecycle stolperstein-bonn@0.1.0~dev: stolperstein-bonn@0.1.0
+8 verbose lifecycle stolperstein-bonn@0.1.0~dev: unsafe-perm in lifecycle true
+9 verbose lifecycle stolperstein-bonn@0.1.0~dev: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/jupp/public_html/stolperstein-bonn/node_modules/.bin:/usr/bin:/home/Josef/bin:/cygdrive/c/Program\ Files\ \(x86\)/Brackets/:/cygdrive/c/Users/Jupp/node_modules/.bin/:/cygdrive/c/Users/Jupp/AppData/Roaming/npm/node/modules/npm/bin:/cygdrive/c/Users/Josef/Documents/My\ Web\ Sites/Manually\ Created/g4u-git/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+10 verbose lifecycle stolperstein-bonn@0.1.0~dev: CWD: /home/jupp/public_html/stolperstein-bonn
+11 silly lifecycle stolperstein-bonn@0.1.0~dev: Args: [ '-c', 'g4u-build -m dev -c "conf"' ]
+12 silly lifecycle stolperstein-bonn@0.1.0~dev: Returned: code: 1  signal: null
+13 info lifecycle stolperstein-bonn@0.1.0~dev: Failed to exec dev script
+14 verbose stack Error: stolperstein-bonn@0.1.0 dev: `g4u-build -m dev -c "conf"`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/usr/lib/node_modules/npm/lib/utils/lifecycle.js:242:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:877:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid stolperstein-bonn@0.1.0
+16 verbose cwd /home/jupp/public_html/stolperstein-bonn
+17 error Linux 4.4.0-38-generic
+18 error argv "/usr/bin/nodejs" "/usr/bin/npm" "run" "dev" "conf"
+19 error node v6.7.0
+20 error npm  v3.10.3
+21 error code ELIFECYCLE
+22 error stolperstein-bonn@0.1.0 dev: `g4u-build -m dev -c "conf"`
+22 error Exit status 1
+23 error Failed at the stolperstein-bonn@0.1.0 dev script 'g4u-build -m dev -c "conf"'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the stolperstein-bonn package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     g4u-build -m dev -c "conf"
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs stolperstein-bonn
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls stolperstein-bonn
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
